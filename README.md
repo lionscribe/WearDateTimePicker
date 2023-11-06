@@ -23,8 +23,13 @@ Library
 
 #### Gradle (build.gradle)
 ````groovy
+repositories {
+	....
+	maven { url 'https://jitpack.io' }
+}
+
 dependencies {
-    implementation 'com.kimjio:weardatetimepicker:1.0'
+    implementation 'com.github.lionscribe:weardatetimepicker:2.1'
 }
 ````
 
@@ -68,6 +73,7 @@ new TimePickerDialog(/* context */ this, /* 24 hours */ true)
 
 #### Ver 2.1
 Implemented Rotary Input as per new Google Guidelines
+Switched to use JitPack
 
 #### TODO
 Wear OS 3 design

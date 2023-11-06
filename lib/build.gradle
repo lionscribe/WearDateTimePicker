@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
 // apply plugin: 'com.github.dcendents.android-maven'
 // apply plugin: 'com.jfrog.bintray'
 
@@ -22,26 +23,35 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    publishing {
+        publishing {
+            singleVariant("release") {
+                withSourcesJar()
+                withJavadocJar()
+            }
+        }
+    }
 }
 
 ext {
-    bintrayRepo = 'maven'
-    bintrayName = 'WearDateTimePicker'
-
-    publishedGroupId = 'com.kimjio'
+    publishedGroupId = 'com.lionscribe'
     libraryName = 'WearDateTimePicker'
     artifact = 'weardatetimepicker'
 
     libraryDescription = 'DateTimePicker for Wear OS (from Wear OS Settings)'
 
-    siteUrl = 'https://github.com/Kimjio/WearDateTimePicker'
-    gitUrl = 'https://github.com/Kimjio/WearDateTimePicker.git'
+    siteUrl = 'https://github.com/lionscribe/WearDateTimePicker'
+    gitUrl = 'https://github.com/lionscribe/WearDateTimePicker.git'
 
     libraryVersion = '2.1'
 
-    developerId = 'kimji'
-    developerName = 'Ji O Kim'
-    developerEmail = 'kimjioh0927@gmail.com'
+    developerId = 'lionscribe'
+    developerName = 'Lionscribe'
+    developerEmail = 'lionscribe@gmail.com'
 }
 
 dependencies {
@@ -55,30 +65,19 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }
 
-group = publishedGroupId
-version = libraryVersion
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = publishedGroupId
+            artifactId = artifact
+            version = libraryVersion
 
-/*install {
-    repositories.mavenInstaller {
-        pom.project {
-            packaging 'aar'
-            groupId publishedGroupId
-            artifactId artifact
-
-            name libraryName
-            description libraryDescription
-            url siteUrl
-
-            developers {
-                developer {
-                    id developerId
-                    name developerName
-                    email developerEmail
-                }
+            afterEvaluate {
+                from components.release
             }
         }
     }
-}*/
+}
 
 task sourcesJar(type: Jar) {
     archiveClassifier.set('sources')
@@ -91,25 +90,3 @@ artifacts {
 
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
-
-/*
-bintray {
-    //On local.properties
-    user = properties.getProperty("bintray.user")
-    key = properties.getProperty("bintray.apikey")
-
-    configurations = ['archives']
-    pkg {
-        repo = bintrayRepo
-        name = bintrayName
-        desc = libraryDescription
-        websiteUrl = siteUrl
-        dryRun = false
-        publish = true
-        override = false
-        publicDownloadNumbers = true
-        version {
-            desc = libraryDescription
-        }
-    }
-}*/
