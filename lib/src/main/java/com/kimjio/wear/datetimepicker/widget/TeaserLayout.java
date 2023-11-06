@@ -151,6 +151,7 @@ class TeaserLayout extends FrameLayout {
             if (this.mCenterIndexListener != null) {
                 this.mCenterIndexListener.onCenterIndexChanged(this.mCenterIndex);
             }
+            getChildAt(this.mCenterIndex).requestFocus();
         }
     }
 

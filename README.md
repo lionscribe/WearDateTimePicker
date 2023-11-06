@@ -66,6 +66,9 @@ new TimePickerDialog(/* context */ this, /* 24 hours */ true)
 </layout>
 ````
 
+#### Ver 2.1
+Implemented Rotary Input as per new Google Guidelines
+
 #### TODO
 Wear OS 3 design
 
