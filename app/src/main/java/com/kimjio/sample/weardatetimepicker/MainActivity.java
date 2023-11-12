@@ -1,9 +1,10 @@
 package com.kimjio.sample.weardatetimepicker;
 
 import android.os.Bundle;
-import android.support.wearable.activity.WearableActivity;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.fragment.app.FragmentActivity;
 
 import com.kimjio.wear.datetimepicker.app.DatePickerDialog;
 import com.kimjio.wear.datetimepicker.app.TimePickerDialog;
@@ -12,7 +13,8 @@ import com.kimjio.wear.datetimepicker.widget.TimePicker;
 
 import java.util.Locale;
 
-public class MainActivity extends WearableActivity {
+public class MainActivity extends FragmentActivity
+{
 
     private TextView resultDate, resultTime;
 

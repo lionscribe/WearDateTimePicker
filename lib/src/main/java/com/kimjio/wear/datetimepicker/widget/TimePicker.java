@@ -1,7 +1,6 @@
 package com.kimjio.wear.datetimepicker.widget;
 
 import android.content.Context;
-import android.support.wearable.view.WearableListView;
 import android.text.format.DateFormat;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;

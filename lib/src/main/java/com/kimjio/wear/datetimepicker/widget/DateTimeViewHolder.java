@@ -2,7 +2,6 @@ package com.kimjio.wear.datetimepicker.widget;
 
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
-import android.support.wearable.view.WearableListView;
 import android.view.View;
 import android.widget.TextView;
 

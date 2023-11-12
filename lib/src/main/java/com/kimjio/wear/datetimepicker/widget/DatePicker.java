@@ -1,7 +1,6 @@
 package com.kimjio.wear.datetimepicker.widget;
 
 import android.content.Context;
-import android.support.wearable.view.WearableListView;
 import android.text.format.DateFormat;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -68,9 +67,9 @@ public class DatePicker extends TeaserLayout {
 
     private void init() {
         char[] order = DateFormat.getDateFormatOrder(getContext());
-        setupPicker(order, 0, (WearableListView) findViewById(R.id.first_picker));
-        setupPicker(order, 1, (WearableListView) findViewById(R.id.second_picker));
-        setupPicker(order, 2, (WearableListView) findViewById(R.id.third_picker));
+        setupPicker(order, 0, findViewById(R.id.first_picker));
+        setupPicker(order, 1, findViewById(R.id.second_picker));
+        setupPicker(order, 2, findViewById(R.id.third_picker));
         this.mDoneView = findViewById(R.id.check);
         this.mDoneView.setOnClickListener(new DoneCheckListener());
         Calendar c = Calendar.getInstance();
